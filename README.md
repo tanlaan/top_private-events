@@ -1,24 +1,7 @@
-# README
+# Private-Event
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Reinforcing Rails Data Associations
 
-Things you may want to cover:
+The intent of this project is to build out the functionality, not neccessarily the design, for a simple event based web application. This will allow users to create events, attend events, and get information about events in the past and future.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Link to the assignment](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/private-events)
