@@ -12,13 +12,13 @@
 
 <h3>Future Events:</h3>
 <ul>
-<%@user.attending.where('date > ?', Time.now).each do |event|%>
+<%@user.attending.future.each do |event|%>
   <li><%= link_to event.title, event_path(event.id)  %></li>
 <% end %>
 </ul>
 <h3>Past Events:</h3>
 <ul>
-<%@user.attending.where('date < ?', Time.now).each do |event|%>
+<%@user.attending.past.each do |event|%>
   <li><%= link_to event.title, event_path(event.id)  %></li>
 <% end %>
 </ul>
