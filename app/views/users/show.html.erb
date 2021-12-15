@@ -1,0 +1,24 @@
+<h2>User Profile:</h2>
+
+<h3>Name:</h3>
+<p><%= @user.name %></p>
+
+<h3>Events Created:</h3>
+<ul>
+<% @user.events.each do |event| %>
+  <li><%= link_to event.title, event_path(event.id) %></li>
+<% end %>
+</ul>
+
+<h3>Future Events:</h3>
+<ul>
+<%@user.attending.where('date > ?', Time.now).each do |event|%>
+  <li><%= link_to event.title, event_path(event.id)  %></li>
+<% end %>
+</ul>
+<h3>Past Events:</h3>
+<ul>
+<%@user.attending.where('date < ?', Time.now).each do |event|%>
+  <li><%= link_to event.title, event_path(event.id)  %></li>
+<% end %>
+</ul>
