@@ -19,6 +19,14 @@
   <strong>Location:</strong>
   <%= @event.location %>
 </p>
+<p>
+  <strong>Attendees:</strong>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= link_to attendee.name, show_user_path(attendee.id) %></li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
