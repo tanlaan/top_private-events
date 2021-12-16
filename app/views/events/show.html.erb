@@ -20,6 +20,13 @@
   <%= @event.location %>
 </p>
 <p>
+  <strong>
+    <%= user_signed_in? && @event.attendees.include?(current_user) ?
+    link_to('Cancel RSVP', cancel_rsvp_event_path(@event)) :
+    link_to('RSVP', rsvp_event_path(@event)) %>
+  </strong>
+</p>
+<p>
   <strong>Attendees:</strong>
   <ul>
     <% @event.attendees.each do |attendee| %>

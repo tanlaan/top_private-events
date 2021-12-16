@@ -58,6 +58,28 @@ class EventsController < ApplicationController
     end
   end
 
+  # GET /events/1/rsvp
+  def rsvp
+    @event = Event.find(params[:id])
+    if @event.attendees.include?(current_user)
+      redirect_to @event, notice: "You've already RSVPed"
+    else
+      @event.attendees << current_user
+      redirect_to @event
+    end
+  end
+
+  # GET /events/1/cancel-rsvp
+  def cancel_rsvp
+    @event = Event.find(params[:id])
+    if !@event.attendees.include?(current_user)
+      redirect_to @event, notice: "You're not RSVPed."
+    else
+      @event.attendees.destroy(current_user)
+      redirect_to @event
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
